@@ -10,14 +10,23 @@ const HelloMap = () => {
     initMap()
   }, [])
   const initMap =  () => {
-    // eslint-disable-next-line no-undef
-    new Cesium.Viewer('mapCon')
+    //eslint-disable-next-line no-undef
+    var viewer = new Cesium.Viewer('cesiumContainer');
+    //eslint-disable-next-line no-undef
+    var tileset = new Cesium.Cesium3DTileset({
+      url: //'E:/datamanagesystem-cesium/public/3dtile/ankeyuan/tileset.json'
+      //'https://earthsdk.com/v/last/Apps/assets/dayanta/tileset.json'
+      //'E:/datamanagesystem-cesium/public/3dtile/ankeyuan/tileset.json'
+      //'../public/3dtile/ankeyuan/tileset.json'
+      '../../3dtile/ankeyuan/tileset.json'
+    });
+    viewer.scene.primitives.add(tileset);
+    viewer.zoomTo(tileset);
   }
   return (
-    <div id="mapCon">
-      
+    <div id="cesiumContainer">
     </div>
   )
 }
-console.log(HelloMap);
+
 export default HelloMap;
