@@ -1,3 +1,4 @@
+@import '~antd/dist/antd.css';
 body {
     user-select: none;
     /* background-color: #404040; */
@@ -25,3 +26,18 @@ a {
     background-color: #fff;
 }
 /*页面标题组件样式 end*/
+#b{
+    position: absolute;
+    margin-left: 20px;
+    margin-top: 20px;
+    z-index:1;
+    color: darkgray;
+    border-color: darkgray;
+    background-color: black;
+}
+#b:hover{
+    color: aliceblue;
+    border-color: aliceblue;
+    text-shadow: aliceblue 0px 0px 10px;
+    box-shadow: aliceblue 0px 0px 10px;
+}
