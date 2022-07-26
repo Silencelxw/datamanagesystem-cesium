@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
+import { Routes, Route } from 'react-router-dom'
 import '../../css/app.css'
-import GetInformation from '../model/GetInf'
-import Map from '../model/Model'
+import Model144 from '../model/model144'
+import Home from '../model/Home'
 
 export default class App extends Component{
   render(){
     return (
-          <div>
-            <div class="button_drawer">
-              <GetInformation></GetInformation>
-            </div>
-            <div class="viewer">
-              <Map></Map>
-            </div>
-          </div>
-        )
+      <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="144" element={<Model144 />} />
+      </Routes>
+    )
   }
 }
