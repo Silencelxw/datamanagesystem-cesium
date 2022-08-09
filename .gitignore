@@ -6,12 +6,7 @@
 .pnp.js
 
 #3dtile
-/public/3dtile/ankeyuan/Tile_+009_+009
-/public/3dtile/ankeyuan/Tile_+009_+010
-/public/3dtile/ankeyuan/Tile_+009_+011
-/public/3dtile/ankeyuan/Tile_+010_+009
-/public/3dtile/ankeyuan/Tile_+010_+010
-/public/3dtile/ankeyuan/Tile_+010_+011
+/public/3dtile
 
 # testing
 /coverage

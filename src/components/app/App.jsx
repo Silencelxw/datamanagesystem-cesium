@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import '../../css/app.css'
-import Model144 from '../model/model144'
+import GetModel from '../model/GetModel'
 import Home from '../model/Home'
 
 export default class App extends Component{
@@ -9,7 +9,8 @@ export default class App extends Component{
     return (
       <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="144" element={<Model144 />} />
+            <Route path="/144" element={<GetModel />} />
+            <Route path="/185" element={<GetModel />} />
       </Routes>
     )
   }

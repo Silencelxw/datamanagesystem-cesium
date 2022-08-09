@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import GetInformation from '../model/GetInf'
-import Map from '../model/Model'
+import GetInformation from './GetInf'
+import Map from './Model'
 
-export default class Model144 extends Component{
+export default class GetModel extends Component{
   render(){
     return (
           <div>
