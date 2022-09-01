@@ -11,6 +11,12 @@
             "p_information":"21家企业三维模型生成与修模",
             "m_id":"/185",
             "m_information":"位于四川省内的XXX公司的厂区模型"
+        },
+        {
+            "p_id":"邛崃项目区域点云",
+            "p_information":"邛崃地区",
+            "m_id":"/0816",
+            "m_information":"邛崃项目区域点云"
         }
     ]
 }

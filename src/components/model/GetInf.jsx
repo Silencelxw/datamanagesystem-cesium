@@ -26,6 +26,7 @@ export default class GetInformation extends Component{
             let ModelID = data.map(item => {return item.m_id})
             let ModelInformation = data.map(item => {return item.m_information})
             for (let i = 0; i < PointID.length; i++) {
+              // eslint-disable-next-line
                 switch (ModelID[i]) {
                     case Loc:
                         Model_Information.push(PointID[i])
@@ -68,7 +69,7 @@ export default class GetInformation extends Component{
 
   render(){
       // 这里的className不生效
-    let { visible, Model_Information,Loc }= this.state
+    let { visible, Model_Information }= this.state
       return(
         <div class="button_drawer">
           <Button id="b"  onClick={this.showDrawer}>
