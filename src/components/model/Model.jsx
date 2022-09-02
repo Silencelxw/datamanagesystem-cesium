@@ -1,4 +1,3 @@
-import { modelMatrix } from 'cesium';
 import React, { Component } from 'react'
 
 const cesium = require('cesium/Cesium')
