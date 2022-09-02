@@ -1,4 +1,3 @@
-import { modelMatrix } from 'cesium';
 import React, { Component } from 'react'
 
 const cesium = require('cesium/Cesium')
@@ -9,14 +8,12 @@ let Cesium = cesium;
 export default class Map extends Component {
 
   componentDidMount() {
-
-    //let ModelUrl = ""
+//模型路径
     let s1 = "../../3dtile/ankeyuan"
     let s2 = "/tileset.json"
-
     let ModelUrl = s1 + window.location.href.substring(window.location.href.lastIndexOf("/")) + s2
-    //console.log("ModelUrl")
-    //window.location.pathname
+
+//UI设置
     //eslint-disable-next-line no-undef
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwYmI4Y2EzNC0xYTU5LTQxNzEtYjdmYy0yNjZjYTE5M2UxMjkiLCJpZCI6MTAyODI4LCJpYXQiOjE2NTg5ODU3MzR9.IKgGVJOU8w9FA9typ403QREHQ8fbgNh4lvgO3dBKfPk'
     //eslint-disable-next-line no-undef
@@ -27,16 +24,42 @@ export default class Map extends Component {
       geocoder: false, // 是否显示地名查找控件  
       baseLayerPicker: true, // 是否显示图层选择控件 
     });
+
+//模型加载
     //eslint-disable-next-line no-undef
     var tileset = new Cesium.Cesium3DTileset({
       url: ModelUrl,
       backFaceCulling: false
       //'../../3dtile/ankeyuan/144/tileset.json'
     });
-    viewer.scene.primitives.add(tileset);
-    viewer.zoomTo(tileset);
 
-    // 亮度设置
+
+//模型调整
+    const tx=0;
+    const ty=0;
+    const tz=-982;
+    tileset.readyPromise.then(function (argument) {
+      viewer.scene.primitives.add(tileset);
+      const cartographic = Cesium.Cartographic.fromCartesian(tileset.boundingSphere.center);
+      const surface = Cesium.Cartesian3.fromRadians(cartographic.longitude, cartographic.latitude, cartographic.height);
+      const m = Cesium.Transforms.eastNorthUpToFixedFrame(surface);
+     
+     //平移
+      const _tx=tx?tx:0;
+      const _ty=ty?ty:0;
+      const _tz=tz?tz:0;
+      const tempTranslation = new Cesium.Cartesian3(_tx, _ty, _tz);
+      const offset =Cesium.Matrix4.multiplyByPoint(m, tempTranslation, new Cesium.Cartesian3(0,0,0));
+      const translation = Cesium.Cartesian3.subtract(offset, surface, new Cesium.Cartesian3());
+      tileset.modelMatrix = Cesium.Matrix4.fromTranslation(translation);
+    
+      tileset._root.transform = m;
+
+      //viewer.flyTo(tileset);
+      viewer.zoomTo(tileset);
+   });
+
+// 亮度设置
     var stages = viewer.scene.postProcessStages;
     //eslint-disable-next-line no-undef
     viewer.scene.brightness = viewer.scene.brightness || stages.add(Cesium.PostProcessStageLibrary.createBrightnessStage());
