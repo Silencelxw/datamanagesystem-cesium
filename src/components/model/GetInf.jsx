@@ -44,7 +44,8 @@ export default class GetInformation extends Component{
         .catch((error) => {
             console.log(error);
         });
-        Loc = window.location.pathname
+        Loc = window.location.hash
+        console.log(Loc)
         this.setState({
           Loc
         })
