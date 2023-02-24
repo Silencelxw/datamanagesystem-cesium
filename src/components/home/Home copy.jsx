@@ -1,12 +1,15 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
+import {HomeFilled} from '@ant-design/icons';
+import { Layout, Space } from 'antd';
 
 export default class Home extends Component{
-
+ 
     render(){
         return (
             <div>
-                <span>Home界面</span>
+                
+                <span><Space><HomeFilled/>Home</Space> </span>
                 <nav>
                     <Link to="/144">前往144号厂区</Link>
                 </nav>
