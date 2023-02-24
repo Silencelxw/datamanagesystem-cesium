@@ -62,7 +62,7 @@ export default class ProjectListBox extends Component{
     />
   </Card>
 {/**第三张 */}
-  <Card
+  {/* <Card
                  hoverable
     style={{
       width: 600,
@@ -87,7 +87,7 @@ export default class ProjectListBox extends Component{
       title= {<Link to ="/0816">   0816号区域</Link>}
       description="项目地点：xxx  项目负责人：xxx"
     />
-  </Card>
+  </Card> */}
   
                 </div>
                

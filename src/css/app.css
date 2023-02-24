@@ -2,6 +2,7 @@
 body {
     user-select: none;
     /* background-color: #404040; */
+    overflow-y: hidden;
 }
 
 a {
